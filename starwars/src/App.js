@@ -2,7 +2,17 @@ import React,{useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 import Characters from './Characters';
- 
+import styled from 'styled-components';
+const Main = styled.div `
+width: 80%;
+border: 5px dashed #58427C;
+border-radius: 10%;
+margin: 0 auto;
+`
+const Title = styled.div `
+color: #A50B5E;
+font-size: 40px;
+`
  
 function App () {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -22,8 +32,9 @@ function App () {
         .catch(err => console.log(err));
    }, []);
   return (
+    <Main>
     <div className="App">
-      <h1>React Wars</h1>
+     <Title><h1>React Wars</h1></Title>
       <div className = "character">
       {chars.map((char, index) => {
          return (
@@ -39,7 +50,7 @@ function App () {
       </div>
     
     </div>
-  
+    </Main>
   );
 };
 export default App;
